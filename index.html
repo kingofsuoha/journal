@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUOHA Journal | 民间野路子实验周报</title>
+    <style>
+        /* 全局ACS风格+双语适配 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", "微软雅黑", sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* 顶部导航栏 */
+        .navbar {
+            background-color: #003366;
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .navbar-logo .en {
+            color: #ff9900;
+            font-size: 22px;
+            margin-right: 8px;
+        }
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .navbar-links a:hover, .navbar-links a.active {
+            color: #ff9900;
+        }
+        /* 首屏Banner（核心双语+大图） */
+        .banner {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), 
+                        url("https://pic1.zhimg.com/80/v2-7e8c9f8b7d6a5c4b3a2e1d0f9e8d7c6b_1440w.jpg"); /* 实验风格背景图 */
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            color: #fff;
+        }
+        .banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .banner h1 {
+            font-size: 48px; /* 英文大字 */
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .banner h1 .cn {
+            font-size: 24px; /* 中文小字 */
+            color: #ff9900;
+            display: block;
+            font-weight: normal;
+            margin-top: 15px;
+            letter-spacing: 0;
+        }
+        .banner p {
+            font-size: 16px;
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .banner p .cn {
+            font-size: 14px;
+            color: #eee;
+        }
+        .banner .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: #ff9900;
+            color: #003366;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .banner .btn:hover {
+            background: #ff6600;
+            transform: scale(1.05);
+        }
+        /* 核心内容区 */
+        .content {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        /* 栏目卡片 */
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-content h3 {
+            font-size: 20px; /* 英文大字 */
+            color: #003366;
+            margin-bottom: 8px;
+        }
+        .card-content h3 .cn {
+            font-size: 16px; /* 中文小字 */
+            color: #666;
+            font-weight: normal;
+            display: block;
+        }
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+        /* 关于我们板块 */
+        .about {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .about h2 {
+            font-size: 32px; /* 英文大字 */
+            color: #003366;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .about h2 .cn {
+            font-size: 18px; /* 中文小字 */
+            color: #ff9900;
+            font-weight: normal;
+            display: block;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .about-img {
+            width: 40%;
+            border-radius: 8px;
+        }
+        .about-text {
+            width: 60%;
+        }
+        .about-text p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .about-text p .en {
+            color: #003366;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        /* 底部 */
+        .footer {
+            background: #003366;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #ff9900;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-col a:hover {
+            color: #ff9900;
+        }
+        .footer-copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 20px;
+            border-top: 1px solid #334;
+            font-size: 13px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="en">SUOHA Journal</span> 民间野路子实验周报
+            </div>
+            <div class="navbar-links">
+                <a href="index.html" class="active">Home / 首页</a>
+                <a href="submit.html">Submission / 投稿</a>
+                <a href="#">Archives / 往期</a>
+                <a href="#">About / 关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏Banner -->
+    <section class="banner">
+        <div class="banner-container">
+            <h1>SUOHA JOURNAL OF RANDOM EXPERIMENTS
+                <span class="cn">民间野路子实验周报 · 梭哈大王实验室出品</span>
+            </h1>
+            <p>
+                The Most Unprofessional Experimental Journal in the World 
+                <span class="cn">全球最不专业的实验期刊 | 无资质·无审稿·无底线 | 整活实验投稿专用</span>
+            </p>
+            <a href="submit.html" class="btn">SUBMIT YOUR WORK / 立即投稿</a>
+        </div>
+    </section>
+
+    <!-- 核心栏目卡片 -->
+    <section class="content">
+        <div class="card">
+            <img src="https://pic3.zhimg.com/80/v2-8a7d6e5f444444444444444444444444_1440w.jpg" alt="Failed Experiments" class="card-img">
+            <div class="card-content">
+                <h3>FAILED EXPERIMENTS
+                    <span class="cn">实验翻车实录</span>
+                </h3>
+                <p>Record of all kinds of funny failed experiments. 记录各种搞笑的实验翻车现场，越惨越受欢迎。</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://pic2.zhimg.com/80/v2-9b8c7d6e5f5555555555555555555555_1440w.jpg" alt="Random Challenges" class="card-img">
+            <div class="card-content">
+                <h3>RANDOM CHALLENGES
+                    <span class="cn">无厘头整活挑战</span>
+                </h3>
+                <p>Unreasonable and funny challenges. 毫无道理的搞笑挑战，主打一个瞎搞，开心就好。</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://pic1.zhimg.com/80/v2-f8d6a17e888888888888888888888888_1440w.jpg" alt="Nonsense Reports" class="card-img">
+            <div class="card-content">
+                <h3>NONSENSE REPORTS
+                    <span class="cn">瞎搞数据报告</span>
+                </h3>
+                <p>Made-up data and ridiculous conclusions. 纯编的数据+离谱的结论，拒绝任何正经分析。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="about">
+        <h2>ABOUT US
+            <span class="cn">关于梭哈大王实验室</span>
+        </h2>
+        <div class="about-content">
+            <img src="https://pic4.zhimg.com/80/v2-7a6b5c4d3e2f1e0d9c8b7a6s5d4f3g2h_1440w.jpg" alt="About Us" class="about-img">
+            <div class="about-text">
+                <p><span class="en">Founder:</span> 梭哈大王实验室·真人（整活实验首席冤种）</p>
+                <p><span class="en">Mission:</span> 用最瞎搞的实验，做最无厘头的期刊，拒绝一切学术正经，主打一个开心整活。</p>
+                <p><span class="en">Vision:</span> 成为全球最大的SHIT级野鸡实验期刊，让每一个冤种的翻车实验都有展示的舞台。</p>
+                <p><span class="en">Rule:</span> 投稿即放弃版权，录用率≈0.01%，拒稿不通知、不解释、不退稿，投稿后果自负。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Quick Links / 快速链接</h4>
+                <ul>
+                    <li><a href="index.html">Home / 首页</a></li>
+                    <li><a href="submit.html">Submission / 投稿</a></li>
+                    <li><a href="#">Archives / 往期整活</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact / 联系我们</h4>
+                <ul>
+                    <li><a href="#">No Customer Service / 无客服</a></li>
+                    <li><a href="#">No Email / 无邮箱</a></li>
+                    <li><a href="#">No Phone / 无电话</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Disclaimer / 免责声明</h4>
+                <ul>
+                    <li><a href="#">No Academic Qualification / 无学术资质</a></li>
+                    <li><a href="#">No Copyright / 无版权保护</a></li>
+                    <li><a href="#">No Responsibility / 无相关责任</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2026 SHIT Journal | 民间野路子实验周报 · 梭哈大王实验室 版权所有（反正也没版权）
+        </div>
+    </footer>
+</body>
+</html>

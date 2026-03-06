@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission | 投稿系统 - SUOHA Journal</title>
+    <style>
+        /* 全局ACS风格，和首页统一视觉 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", "微软雅黑", sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* 导航栏（和首页一致） */
+        .navbar {
+            background-color: #003366;
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .navbar-logo .en {
+            color: #ff9900;
+            font-size: 22px;
+            margin-right: 8px;
+        }
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .navbar-links a:hover, .navbar-links a.active {
+            color: #ff9900;
+        }
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+        /* 侧边栏 */
+        .sidebar {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .sidebar h3 {
+            color: #003366;
+            font-size: 18px; /* 英文大字 */
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .sidebar h3 .cn {
+            font-size: 14px; /* 中文小字 */
+            color: #666;
+            font-weight: normal;
+            display: block;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .sidebar li .en {
+            color: #003366;
+            font-size: 14px;
+        }
+        .sidebar li .cn {
+            color: #666;
+            font-size: 13px;
+        }
+        .sidebar a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .sidebar a:hover {
+            color: #ff9900;
+        }
+        /* 主内容区 */
+        .main-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .main-content h2 {
+            font-size: 28px; /* 英文大字 */
+            color: #003366;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff9900;
+        }
+        .main-content h2 .cn {
+            font-size: 18px; /* 中文小字 */
+            color: #666;
+            font-weight: normal;
+            display: block;
+        }
+        .main-content .intro {
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+        }
+        .main-content .intro .en {
+            color: #003366;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        /* 问卷iframe适配 */
+        .form-iframe {
+            width: 100%;
+            height: 900px;
+            border: none;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        /* 投稿须知卡片 */
+        .guide-card {
+            background: #f5f8fc;
+            padding: 20px;
+            border-left: 4px solid #ff9900;
+            margin-bottom: 20px;
+            border-radius: 0 6px 6px 0;
+        }
+        .guide-card h4 {
+            font-size: 16px;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        .guide-card ul {
+            padding-left: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .guide-card li {
+            margin-bottom: 8px;
+        }
+        /* 底部 */
+        .footer {
+            max-width: 1200px;
+            margin: 40px auto 20px;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            border-top: 1px solid #eee;
+        }
+        .footer .en {
+            color: #003366;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏（和首页联动） -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="en">SUOHA Journal</span> 民间野路子实验周报
+            </div>
+            <div class="navbar-links">
+                <a href="index.html">Home / 首页</a>
+                <a href="submit.html" class="active">Submission / 投稿</a>
+                <a href="#">Archives / 往期</a>
+                <a href="#">About / 关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 侧边栏（双语导航） -->
+        <aside class="sidebar">
+            <h3>SUBMISSION GUIDE
+                <span class="cn">投稿导航</span>
+            </h3>
+            <ul>
+                <li><span class="en">Guidelines</span> <span class="cn">投稿须知</span></li>
+                <li><span class="en">Requirements</span> <span class="cn">稿件要求</span></li>
+                <li><span class="en">Rules</span> <span class="cn">录用规则</span></li>
+                <li><span class="en">FAQ</span> <span class="cn">常见问题</span></li>
+                <li><span class="en">Contact</span> <span class="cn">联系我们</span></li>
+            </ul>
+
+            <h3 style="margin-top:20px;">CATEGORIES
+                <span class="cn">整活分类</span>
+            </h3>
+            <ul>
+                <li><span class="en">Failed Experiments</span> <span class="cn">实验翻车实录</span></li>
+                <li><span class="en">Random Challenges</span> <span class="cn">无厘头整活挑战</span></li>
+                <li><span class="en">Nonsense Reports</span> <span class="cn">瞎搞数据报告</span></li>
+                <li><span class="en">Funny Talks</span> <span class="cn">冤种发言专区</span></li>
+            </ul>
+        </aside>
+
+        <!-- 主内容区（投稿表单） -->
+        <main class="main-content">
+            <h2>SUBMISSION FORM
+                <span class="cn">投稿表单</span>
+            </h2>
+
+            <!-- 投稿须知 -->
+            <div class="guide-card">
+                <h4>Submission Guidelines / 投稿须知</h4>
+                <ul>
+                    <li><span class="en">Copyright:</span> Submission means giving up all copyrights. 投稿即放弃所有版权，本刊可随意修改、发布。</li>
+                    <li><span class="en">Acceptance Rate:</span> ≈0.01%, no rejection notice. 录用率≈0.01%，拒稿不通知、不解释。</li>
+                    <li><span class="en">Content:</span> Only accept funny/failed experiments, no serious papers. 仅接收整活/翻车实验内容，正经论文直接拒收。</li>
+                </ul>
+            </div>
+
+            <!-- 投稿说明 -->
+            <div class="intro">
+                <span class="en">Welcome:</span> 欢迎投喂你的整活稿件！<span class="en">SUOHA Journal</span> 为无资质野鸡刊，投稿后果自负。
+            </div>
+
+            <!-- 嵌入你的腾讯问卷 -->
+            <iframe class="form-iframe" src="https://wj.qq.com/s2/25886198/ccf4/" frameborder="0"></iframe>
+        </main>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <p><span class="en">Disclaimer:</span> SUOHA Journal has no academic qualification, all rights reserved (no copyright actually) © 2026</p>
+        <p>免责声明：《民间野路子实验周报》为SUOHA级野鸡刊，无任何学术资质 | 梭哈大王实验室 保留最终解释权</p>
+    </footer>
+</body>
+</html>
