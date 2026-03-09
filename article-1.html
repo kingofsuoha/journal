@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一期 | 室温无配体“一锅法”Suzuki-Miyaura偶联反应的灾难性探索 | SOHA Journal</title>
+    <!-- 全站统一基础样式 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.8;
+            font-family: "Times New Roman", "Arial", "微软雅黑", sans-serif;
+        }
+        /* 导航栏 - 与全站完全统一 */
+        .navbar {
+            background-color: #003366;
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .navbar-logo .en {
+            color: #ff9900;
+            font-size: 22px;
+            margin-right: 8px;
+        }
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .navbar-links a:hover, .navbar-links a.active {
+            color: #ff9900;
+        }
+        /* 面包屑导航 - 提升阅读体验 */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #003366;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: #ff9900;
+        }
+        /* 文章容器 - 学术排版核心 */
+        .article-container {
+            max-width: 1200px;
+            margin: 30px auto 50px;
+            padding: 40px 60px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        /* 文章标题区 */
+        .article-title {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #003366;
+        }
+        .article-title h1 {
+            font-size: 24px;
+            color: #003366;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .article-meta {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .article-meta span {
+            margin: 0 15px;
+        }
+        /* 摘要与关键词 */
+        .abstract, .keywords {
+            margin-bottom: 25px;
+        }
+        .abstract h2, .keywords h2 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #003366;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .abstract p {
+            text-indent: 2em;
+            font-size: 15px;
+            color: #333;
+            display: inline;
+        }
+        .keywords p {
+            font-size: 15px;
+            color: #333;
+            display: inline;
+        }
+        /* 正文章节排版 */
+        .article-content h2 {
+            font-size: 18px;
+            color: #003366;
+            font-weight: bold;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #ff9900;
+        }
+        .article-content h3 {
+            font-size: 16px;
+            color: #003366;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+        .article-content h4 {
+            font-size: 15px;
+            color: #333;
+            font-weight: bold;
+            margin: 15px 0 8px;
+        }
+        .article-content p {
+            font-size: 15px;
+            text-indent: 2em;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        /* 表格规范排版 */
+        .article-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+            text-align: center;
+            overflow-x: auto;
+            display: block;
+        }
+        .article-table th {
+            background-color: #003366;
+            color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-weight: bold;
+        }
+        .article-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .article-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .table-caption {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        /* 参考文献排版 */
+        .references {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .references h2 {
+            font-size: 18px;
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .references ol {
+            padding-left: 2em;
+        }
+        .references li {
+            font-size: 14px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            text-align: justify;
+            padding-left: 1em;
+            text-indent: -1em;
+        }
+        /* 致谢排版 */
+        .acknowledgment {
+            margin-top: 30px;
+        }
+        .acknowledgment h2 {
+            font-size: 18px;
+            color: #003366;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .acknowledgment p {
+            font-size: 15px;
+            text-indent: 2em;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        /* 返回按钮 */
+        .back-btn {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .back-btn a {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #003366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .back-btn a:hover {
+            background: #ff9900;
+            transform: scale(1.05);
+        }
+        /* 页脚 - 与全站完全统一 */
+        .footer {
+            background: #003366;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #ff9900;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-col a:hover {
+            color: #ff9900;
+        }
+        .footer-copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 20px;
+            border-top: 1px solid #334;
+            font-size: 13px;
+            color: #ccc;
+        }
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+            .article-title h1 {
+                font-size: 18px;
+            }
+            .navbar-links a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 - 全站统一 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="en">SOHA Journal</span> 民间野路子实验周报
+            </div>
+            <div class="navbar-links">
+                <a href="index.html">Home / 首页</a>
+                <a href="submit.html">Submission / 投稿</a>
+                <a href="archives.html" class="active">Archives / 往期</a>
+                <a href="#">About / 关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+        <a href="index.html">首页</a> > <a href="archives.html">往期投稿</a> > 第一期文章
+    </div>
+
+    <!-- 文章核心容器 -->
+    <div class="article-container">
+        <!-- 文章标题与元信息 -->
+        <div class="article-title">
+            <h1>室温无配体 “一锅法” Suzuki-Miyaura 偶联反应的灾难性探索：从理想合成到产物全损的系统性翻车研究</h1>
+            <div class="article-meta">
+                <span>第一期</span>
+                <span>分类：实验翻车实录</span>
+                <span>投稿日期：2026-03-09</span>
+                <span>收录状态：已录用</span>
+            </div>
+        </div>
+
+        <!-- 摘要 -->
+        <div class="abstract">
+            <h2>摘要</h2>
+            <p>本研究旨在开发一种室温、无配体、无惰性气体保护的低成本 Suzuki-Miyaura 偶联方案，解决传统偶联反应条件苛刻、膦配体昂贵、操作繁琐的本科生合成痛点。以 4-溴苯乙酮与苯硼酸为模板底物，系统性考察了碱种类、溶剂体系、催化剂类型及用量对反应的影响。历经 2 周 17 次平行实验，本研究未获得任何目标偶联产物，反而完整实现了原料全降解、催化剂不可逆中毒、产物乳化无法萃取、硅胶柱层析全损失四大突破性翻车成果，构建了该反应全流程的反面数据集，填补了有机化学本科实验中系统性翻车案例的空白，为广大合成新手提供了可完全反向参考的避坑指南。</p>
+        </div>
+
+        <!-- 关键词 -->
+        <div class="keywords">
+            <h2>关键词：</h2>
+            <p>Suzuki-Miyaura 偶联；有机合成翻车；无配体催化；反面教材；非酋合成化学</p>
+        </div>
+
+        <!-- 正文内容 -->
+        <div class="article-content">
+            <h2>一、引言</h2>
+            <p>Suzuki-Miyaura 偶联反应自 1979 年被铃木章教授报道以来，已成为构建 C (sp²)-C (sp²) 键最成熟、应用最广泛的合成方法之一，广泛应用于药物分子、功能材料、天然产物全合成等领域。</p>
+            <p>传统 Suzuki 偶联反应需严格的无水无氧环境、贵金属膦配体、高温回流等条件，存在操作门槛高、试剂成本高、实验周期长等问题，极大限制了其在本科毕设、研究生日常摸鱼式合成中的应用。近年来，大量顶刊及合成通讯报道了室温无配体 Suzuki 偶联的简化方案，宣称可在空气氛围、室温条件下以 85% 以上收率获得目标产物。</p>
+            <p>本课题组（仅作者 1 人）基于 “文献说有手就行，那我们肯定也能行” 的核心假说，拟开发一套更简化的 “一锅法” 偶联方案，完全摒弃惰性气体保护、无水溶剂预处理、配体添加等繁琐操作，预期实现 10 分钟投料、2 小时反应、90% 以上分离收率的目标，为广大合成新手提供一套 “零门槛” 的偶联操作流程。</p>
+
+            <h2>二、实验部分</h2>
+            <h3>2.1 试剂与仪器</h3>
+            <h4>试剂信息</h4>
+            <p>4-溴苯乙酮（阿拉丁，98%，未重结晶直接使用）、苯硼酸（安耐吉，97%，开封存放 6 个月，瓶口未密封，未检测纯度）、碳酸钾、碳酸钠、氢氧化钠、三乙胺（国药集团，分析纯，未无水处理）、四氢呋喃（THF）、1,4-二氧六环、无水乙醇、N,N-二甲基甲酰胺（DMF）（分析纯，未重蒸，开瓶直接使用）、醋酸钯（Pd(OAc)<sub>2</sub>，新开瓶，外观无异常）、四(三苯基膦)钯（Pd(PPh<sub>3</sub>)<sub>4</sub>，阿拉丁分装，透明瓶存放于冰箱 6 个月，颜色由亮黄变为棕黑色）、[1,1'-双(二苯基膦)二茂铁]二氯化钯（PdCl<sub>2</sub>(dppf)，同门遗留样品，标签脱落一半）、柱层析硅胶（200-300 目，开封存放 12 个月，未活化）。</p>
+            <h4>仪器信息</h4>
+            <p>实验室公用磁力搅拌器（转速波动范围 ±200 rpm）、254 nm 紫外分析仪、旋转蒸发仪（水浴锅曾发生漏水倒吸，内部残留水垢）、玻璃仪器（自来水冲洗、去离子水润洗，未烘干，内壁残留肉眼可见水珠）。</p>
+
+            <h3>2.2 标准实验操作</h3>
+            <p>在 25 mL 两口瓶中，依次加入 4-溴苯乙酮 1.0 mmol、苯硼酸 1.2 mmol、无机碱 2.0 mmol、混合溶剂 5 mL、钯催化剂 1 mol%，室温敞口搅拌，TLC 薄层色谱监测反应进程。</p>
+            <p>反应结束后，加入饱和氯化铵溶液淬灭反应，乙酸乙酯萃取 3 次（每次 10 mL），合并有机相，饱和食盐水洗涤 1 次，无水硫酸钠干燥 30 min，过滤后减压旋除溶剂，粗产物经硅胶柱层析分离纯化。</p>
+
+            <h3>2.3 产物表征预设</h3>
+            <p>目标产物为 4-乙酰基联苯，预期通过 <sup>1</sup>H NMR、<sup>13</sup>C NMR 进行结构表征，分离收率通过称重法计算。注：本研究全程未获得可用于表征的纯品，表征环节未执行。</p>
+
+            <h2>三、结果与讨论</h2>
+            <h3>3.1 碱种类对反应的灾难性影响</h3>
+            <p>固定溶剂体系为 THF/H<sub>2</sub>O=4:1，催化剂为 Pd(OAc)<sub>2</sub> 1 mol%，室温搅拌，考察 4 种常用碱对反应的影响，结果如表 1 所示。</p>
+
+            <p class="table-caption">表 1 碱种类对反应的影响</p>
+            <table class="article-table">
+                <thead>
+                    <tr>
+                        <th>碱种类</th>
+                        <th>反应时间</th>
+                        <th>TLC 监测结果</th>
+                        <th>最终结局</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>碳酸钾</td>
+                        <td>2 h</td>
+                        <td>原料点完整，仅出现原点杂点</td>
+                        <td>搅拌过夜后原料完全消失，全部转化为黑色焦油状物质，无法萃取分离</td>
+                    </tr>
+                    <tr>
+                        <td>碳酸钠</td>
+                        <td>6 h</td>
+                        <td>原料剩余 50%，无产物点</td>
+                        <td>搅拌 12 h 后原料全部分解，体系变为深褐色浑浊液</td>
+                    </tr>
+                    <tr>
+                        <td>氢氧化钠</td>
+                        <td>10 min</td>
+                        <td>苯硼酸点完全消失，原料点无变化</td>
+                        <td>强碱导致苯硼酸快速脱硼分解，后续仅生成大量苯酚类杂点，无偶联产物</td>
+                    </tr>
+                    <tr>
+                        <td>三乙胺</td>
+                        <td>8 h</td>
+                        <td>原料点完全保留，无任何新点生成</td>
+                        <td>体系无任何反应发生，与空白对照组无差异</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>实验结果表明，无机强碱导致苯硼酸快速分解，有机碱无法触发催化循环，弱碱仅能催化原料碳化，4 种碱均未实现目标偶联反应，完美避开了所有可行选项。</p>
+
+            <h3>3.2 溶剂体系的优化与全流程翻车</h3>
+            <p>固定碱为碳酸钾，催化剂为 Pd(OAc)<sub>2</sub> 1 mol%，考察 4 种文献常用溶剂体系对反应的影响，结果如下：</p>
+            <p>1. 1,4-二氧六环 / H<sub>2</sub>O=4:1：文献中 Suzuki 偶联首选溶剂体系，本实验中表现与 THF/H<sub>2</sub>O 完全一致，2 h 无产物生成，过夜后原料全部转化为焦油，无分离价值。</p>
+            <p>2. 乙醇 / H<sub>2</sub>O=3:1：为提升原料溶解度选择该体系，投料后 TLC 点板出现严重扩散，原料点与杂点完全融合，无法监测反应进程。反应结束后萃取环节发生严重乳化，水相与有机相完全不分层，加入饱和食盐水、无水乙醇均无法破乳，最终整瓶反应液直接废弃，浪费乙酸乙酯 50 mL。</p>
+            <p>3. 纯 DMF 溶剂：为解决碱溶解度问题选择高沸点 DMF，反应结束后减压旋蒸，80℃水浴下溶剂无法有效蒸除，旋蒸 30 min 后溶剂剩余量＞80%，操作中发生水泵水倒吸，整瓶产物直接冲入下水道，无任何回收可能。</p>
+            <p>4. 无水 THF 溶剂：为避免苯硼酸水解选择无水体系，投料后碳酸钾完全不溶解，体系形成泥浆状悬浊液，搅拌子无法正常转动，催化剂沉底团聚，反应 8 h 无任何进展。</p>
+
+            <h3>3.3 催化剂筛选与不可逆中毒事故</h3>
+            <p>固定碱为碳酸钾，溶剂为 1,4-二氧六环 / H<sub>2</sub>O=4:1，更换 3 种经典 Suzuki 偶联催化剂，结果如下：</p>
+            <p>1. Pd(PPh<sub>3</sub>)<sub>4</sub> 2 mol%：经典零价钯催化剂，投料后体系瞬间变为深棕色，1 h 后原料完全消失，无产物点生成，仅出现大量原点爬板的杂点。事后经同门确认，Pd(PPh<sub>3</sub>)<sub>4</sub>需避光、充氩气低温保存，本实验所用样品为透明瓶存放 6 个月，已完全分解为钯黑，仅能催化原料氧化碳化，无法触发偶联循环。</p>
+            <p>2. PdCl<sub>2</sub>(dppf) 2 mol%：同门遗留样品，投料后体系无明显变色，搅拌 6 h 原料点纹丝不动，无任何反应发生。事后核对发现，该样品瓶内实际为同门合成的二茂铁衍生物，外观与 PdCl<sub>2</sub>(dppf) 高度相似，本次实验仅加入了配体，未加入任何催化活性中心，属于典型的 “无效投料”。</p>
+            <p>3. 催化剂用量提升至 5 mol%：为提升反应活性，将 Pd(OAc)<sub>2</sub>用量提升至 5 mol%，最终结果为杂点数量显著增加，焦油产量翻倍，仍无任何目标产物生成，同时造成了价值数百元的贵金属催化剂浪费。</p>
+
+            <h3>3.4 其他系统性翻车细节补充</h3>
+            <p>1. 惰性气体保护的无效操作：后期为解决催化剂氧化问题，补充了氩气球保护，所用氩气球存在肉眼不可见的漏点，充气后 10 min 完全瘪掉，反应体系仍全程与空气接触，催化剂持续中毒失活。</p>
+            <p>2. 原料纯度的致命缺陷：实验后期对苯硼酸进行核磁检测，发现样品已大部分氧化为苯酚，有效含量不足 50%，属于从投料开始就注定失败的 “僵尸原料”。</p>
+            <p>3. TLC 监测的全程失误：前期采用石油醚 / 乙酸乙酯 = 5:1 作为展开剂，目标产物与原料点 Rf 值差异＜0.1，完全无法分离，多次误判为 “无反应发生”；更换为 10:1 展开剂后，产物点无法正常爬板，全程未能实现反应进程的有效监测。</p>
+            <p>4. 柱层析的终极损失：仅 1 次实验在 TLC 上观察到疑似产物的新点，粗产物上柱后，因硅胶长期存放吸潮、装柱存在气泡，洗脱过程中条带完全扩散，产物与杂点同步洗脱，22 管馏分全部为混合组分，无法分离纯化，最终全部废弃。</p>
+
+            <h2>四、翻车机理分析</h2>
+            <p>基于 17 次实验的完整翻车数据，本研究提出了该反应的 “非酋催化循环” 机理，核心路径如下：</p>
+            <p>1. 催化剂失活循环：Pd (II) 前体被体系中的水和氧气还原为 Pd (0)，因无配体保护，Pd (0) 瞬间团聚为钯黑，完全失去催化活性；同时钯黑引发自由基链式反应，导致原料氧化、聚合，最终生成焦油状杂质。</p>
+            <p>2. 苯硼酸分解路径：体系中过量的水与强碱协同作用，导致苯硼酸发生快速脱硼质子化，生成苯酚类副产物，进一步被氧化为苯醌，最终聚合为高分子杂质，完全无法参与转金属过程。</p>
+            <p>3. 偶联循环的完全阻断：氧化加成、转金属、还原消除三个核心步骤，因原料失活、催化剂中毒、体系含水等问题，全程未正常发生，所有反应中间体均走向副反应路径，实现了 “零目标产物” 的突破性结果。</p>
+
+            <h2>五、结论</h2>
+            <p>本研究历经 2 周 17 次平行实验，消耗了上千元的试剂与催化剂，浪费了数十小时的科研时间，最终未能获得哪怕 1 mg 的目标偶联产物，完整实现了从 “理想简化合成路线” 到 “全流程系统性翻车” 的闭环，得出以下核心结论：</p>
+            <p>1. 文献报道的 “室温无配体 Suzuki 偶联” 并非 “有手就行”，其背后隐含了无水无氧重蒸溶剂、新鲜制备的高活性催化剂、高纯度原料、严格的惰性气体保护等前提条件，本研究反向操作了所有细节，完美实现了零产物的结果。</p>
+            <p>2. 有机合成实验中，任何一个环节的偷懒，都会最终转化为翻车的结局：未重结晶的原料、未烘干的玻璃仪器、分解失活的催化剂、未优化的展开剂、吸潮的硅胶，本研究精准踩中了所有可能的坑，无一次意外幸免。</p>
+            <p>3. 本研究构建了一套完整的 Suzuki 偶联反应反面数据集，所有本研究采用的操作，广大合成新手均可完全反向执行，可大幅提升反应的成功率。</p>
+            <p>4. 最后郑重奉劝各位同行：不要觉得文献里的反应很简单就随意简化条件，有机化学永远不会放过任何一个想摸鱼的人。</p>
+        </div>
+
+        <!-- 致谢 -->
+        <div class="acknowledgment">
+            <h2>致谢</h2>
+            <p>感谢课题组导师，在本人浪费大量试剂后，仅在组会上批评了半小时，未将本人逐出课题组；感谢同门师兄师姐，为本次研究提供了各类过期试剂、标签脱落的样品，以及每次翻车后的情绪支持；感谢实验室的旋转蒸发仪，虽多次倒吸产物，但始终未发生爆炸事故；最后感谢铃木章教授，发明了如此经典的偶联反应，可惜本人完全没做出来。</p>
+        </div>
+
+        <!-- 参考文献 -->
+        <div class="references">
+            <h2>参考文献</h2>
+            <ol>
+                <li>Miyaura N, Yamada K, Suzuki A. A new stereospecific cross-coupling by the palladium-catalyzed reaction of 1-alkenylboranes with 1-alkenyl or 1-alkynyl halides [J]. Tetrahedron Letters, 1979, 20 (36): 3437-3440.</li>
+                <li>Li J H, Liu W J, Xie Y X. Room-temperature Suzuki-Miyaura reaction of aryl chlorides in aqueous media under air without ligand addition [J]. The Journal of Organic Chemistry, 2007, 72 (10): 4067-4072.</li>
+                <li>知乎匿名用户。做了 12 次 Suzuki 偶联都没出产物，我应该延毕吗？[EB/OL]. 知乎，2022.</li>
+                <li>小木虫论坛. Suzuki 偶联零产物避坑指南 [EB/OL]. 小木虫，2023.</li>
+            </ol>
+        </div>
+
+        <!-- 返回按钮 -->
+        <div class="back-btn">
+            <a href="archives.html">← 返回往期投稿列表</a>
+        </div>
+    </div>
+
+    <!-- 页脚 - 全站统一 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Quick Links / 快速链接</h4>
+                <ul>
+                    <li><a href="index.html">Home / 首页</a></li>
+                    <li><a href="submit.html">Submission / 投稿</a></li>
+                    <li><a href="archives.html">Archives / 往期整活</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact / 联系我们</h4>
+                <ul>
+                    <li><a href="#">No Customer Service / 无客服</a></li>
+                    <li><a href="#">No Email / SOHA@163.COM</a></li>
+                    <li><a href="#">No Phone / 无电话</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Disclaimer / 免责声明</h4>
+                <ul>
+                    <li><a href="#">No Academic Qualification / 无学术资质</a></li>
+                    <li><a href="#">No Copyright / 无版权保护</a></li>
+                    <li><a href="#">No Responsibility / 无相关责任</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2026 SOHA Journal | 民间野路子实验周报 · 梭哈大王实验室 版权所有（反正也没版权）
+        </div>
+    </footer>
+</body>
+</html>
