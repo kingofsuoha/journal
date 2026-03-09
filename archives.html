@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archives / 往期 | SOHA Journal</title>
+    <!-- 复用首页样式，保证视觉统一 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", "微软雅黑", sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* 导航栏（和首页完全一致） */
+        .navbar {
+            background-color: #003366;
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .navbar-logo .en {
+            color: #ff9900;
+            font-size: 22px;
+            margin-right: 8px;
+        }
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .navbar-links a:hover, .navbar-links a.active {
+            color: #ff9900;
+        }
+        /* 页面标题区 */
+        .page-title {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), 
+                        url("soha-1.jpg"); /* 复用首页banner背景 */
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+        }
+        .page-title h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .page-title h1 .cn {
+            font-size: 20px;
+            color: #ff9900;
+            display: block;
+            font-weight: normal;
+            margin-top: 10px;
+        }
+        /* 往期文章列表容器 */
+        .archives-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        /* 文章卡片（适配风格） */
+        .article-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .article-card h2 {
+            color: #003366;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .article-card h2 .cn {
+            font-size: 18px;
+            color: #ff9900;
+            font-weight: normal;
+            display: block;
+            margin-top: 5px;
+        }
+        .article-meta {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .article-content {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .article-content .en {
+            color: #003366;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        /* 底部（和首页完全一致） */
+        .footer {
+            background: #003366;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #ff9900;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-col a:hover {
+            color: #ff9900;
+        }
+        .footer-copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 20px;
+            border-top: 1px solid #334;
+            font-size: 13px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏（和首页一致，Archives设为active） -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="en">SOHA Journal</span> 民间野路子实验周报
+            </div>
+            <div class="navbar-links">
+                <a href="index.html">Home / 首页</a>
+                <a href="submit.html">Submission / 投稿</a>
+                <a href="archives.html" class="active">Archives / 往期</a>
+                <a href="#">About / 关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <section class="page-title">
+        <div class="navbar-container">
+            <h1>ARCHIVES
+                <span class="cn">往期投稿文章</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- 往期文章列表 -->
+    <section class="archives-container">
+        <!-- 示例文章1 -->
+        <div class="article-card">
+            <h2>EXPERIMENT: COLA + MENTOS FAILURE
+                <span class="cn">实验：可乐+曼妥思翻车现场</span>
+            </h2>
+            <div class="article-meta">投稿人：张三 | 投稿日期：2026-03-01 | 分类：实验翻车实录</div>
+            <div class="article-content">
+                <p><span class="en">Abstract:</span> 试图复刻可乐+曼妥思喷泉实验，结果曼妥思放少了，可乐只冒了一点点泡，被室友笑了三天。</p>
+                <p><span class="en">Conclusion:</span> 整活需足量，不然不如不整。</p>
+            </div>
+        </div>
+
+        <!-- 示例文章2 -->
+        <div class="article-card">
+            <h2>CHALLENGE: EAT 10 SPICY STICKS IN 10 SECONDS
+                <span class="cn">挑战：10秒吃完10根辣条</span>
+            </h2>
+            <div class="article-meta">投稿人：李四 | 投稿日期：2026-02-25 | 分类：无厘头整活挑战</div>
+            <div class="article-content">
+                <p><span class="en">Abstract:</span> 为了整活挑战10秒吃10根辣条，结果被辣到嘴肿，喝了3瓶牛奶才缓过来，挑战失败。</p>
+                <p><span class="en">Conclusion:</span> 人菜瘾大，下次还敢。</p>
+            </div>
+        </div>
+
+        <!-- 示例文章3 -->
+        <div class="article-card">
+            <h2>REPORT: RANDOM DATA OF CAT NAPS
+                <span class="cn">报告：猫咪打盹时长瞎搞数据</span>
+            </h2>
+            <div class="article-meta">投稿人：王五 | 投稿日期：2026-02-20 | 分类：瞎搞数据报告</div>
+            <div class="article-content">
+                <p><span class="en">Abstract:</span> 统计了我家猫7天的打盹时长，纯编数据显示它每天睡18.88小时（实际只有12小时），结论是猫比人懒。</p>
+                <p><span class="en">Conclusion:</span> 数据全靠编，结论全靠猜，主打一个随心所欲。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部（和首页一致） -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Quick Links / 快速链接</h4>
+                <ul>
+                    <li><a href="index.html">Home / 首页</a></li>
+                    <li><a href="submit.html">Submission / 投稿</a></li>
+                    <li><a href="archives.html">Archives / 往期整活</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact / 联系我们</h4>
+                <ul>
+                    <li><a href="#">No Customer Service / 无客服</a></li>
+                    <li><a href="#">No Email / SOHA@163.COM</a></li>
+                    <li><a href="#">No Phone / 无电话</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Disclaimer / 免责声明</h4>
+                <ul>
+                    <li><a href="#">No Academic Qualification / 无学术资质</a></li>
+                    <li><a href="#">No Copyright / 无版权保护</a></li>
+                    <li><a href="#">No Responsibility / 无相关责任</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2026 SOHA Journal | 民间野路子实验周报 · 梭哈大王实验室 版权所有（反正也没版权）
+        </div>
+    </footer>
+</body>
+</html>
