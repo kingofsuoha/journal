@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archives / 往期 | SOHA Journal</title>
-    <!-- 复用首页样式，保证视觉统一 -->
     <style>
         * {
             margin: 0;
@@ -34,6 +33,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .navbar-logo {
             font-size: 20px;
@@ -80,7 +81,19 @@
             margin: 50px auto;
             padding: 0 20px;
         }
-        /* 文章卡片（适配风格） */
+        /* 期数分类标题 */
+        .issue-title {
+            font-size: 22px;
+            color: #003366;
+            font-weight: bold;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        .issue-title:first-child {
+            margin-top: 0;
+        }
+        /* 文章卡片（适配学术风格） */
         .article-card {
             background: #fff;
             border-radius: 8px;
@@ -94,16 +107,17 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .article-card h2 {
-            color: #003366;
-            font-size: 22px;
-            margin-bottom: 8px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.5;
         }
-        .article-card h2 .cn {
-            font-size: 18px;
+        .article-card h2 a {
+            color: #003366;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .article-card h2 a:hover {
             color: #ff9900;
-            font-weight: normal;
-            display: block;
-            margin-top: 5px;
         }
         .article-meta {
             color: #999;
@@ -112,15 +126,29 @@
             border-bottom: 1px solid #eee;
             padding-bottom: 10px;
         }
-        .article-content {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.8;
+        .article-meta span {
+            margin-right: 20px;
         }
-        .article-content .en {
-            color: #003366;
+        .article-abstract {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+            text-indent: 2em;
+        }
+        .read-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 20px;
+            background: #003366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
             font-weight: bold;
-            margin-right: 5px;
+            transition: all 0.3s;
+        }
+        .read-btn:hover {
+            background: #ff9900;
         }
         /* 底部（和首页完全一致） */
         .footer {
@@ -165,6 +193,22 @@
             font-size: 13px;
             color: #ccc;
         }
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .navbar-links a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+            .page-title h1 {
+                font-size: 28px;
+            }
+            .article-card {
+                padding: 15px;
+            }
+            .article-card h2 {
+                font-size: 17px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -194,41 +238,37 @@
 
     <!-- 往期文章列表 -->
     <section class="archives-container">
-        <!-- 示例文章1 -->
+        <!-- 第一期文章 -->
+        <h2 class="issue-title">第一期 | 2026年03月</h2>
         <div class="article-card">
-            <h2>EXPERIMENT: COLA + MENTOS FAILURE
-                <span class="cn">实验：可乐+曼妥思翻车现场</span>
-            </h2>
-            <div class="article-meta">投稿人：张三 | 投稿日期：2026-03-01 | 分类：实验翻车实录</div>
-            <div class="article-content">
-                <p><span class="en">Abstract:</span> 试图复刻可乐+曼妥思喷泉实验，结果曼妥思放少了，可乐只冒了一点点泡，被室友笑了三天。</p>
-                <p><span class="en">Conclusion:</span> 整活需足量，不然不如不整。</p>
+            <h2><a href="article-1.html">室温无配体 “一锅法” Suzuki-Miyaura 偶联反应的灾难性探索：从理想合成到产物全损的系统性翻车研究</a></h2>
+            <div class="article-meta">
+                <span>投稿人：梭哈大王实验室</span>
+                <span>投稿日期：2026-03-09</span>
+                <span>分类：实验翻车实录</span>
+                <span>收录状态：已录用</span>
             </div>
+            <p class="article-abstract">
+                本研究历经2周17次平行实验，未获得任何目标偶联产物，反而完整实现了原料全降解、催化剂不可逆中毒、产物乳化无法萃取、硅胶柱层析全损失四大突破性翻车成果，构建了该反应全流程的反面数据集，填补了有机化学本科实验中系统性翻车案例的空白。
+            </p>
+            <a href="article-1.html" class="read-btn">阅读全文 →</a>
         </div>
 
-        <!-- 示例文章2 -->
+        <!-- 预留后续期数模板，新增直接复制即可 -->
+        <!--
+        <h2 class="issue-title">第二期 | 2026年XX月</h2>
         <div class="article-card">
-            <h2>CHALLENGE: EAT 10 SPICY STICKS IN 10 SECONDS
-                <span class="cn">挑战：10秒吃完10根辣条</span>
-            </h2>
-            <div class="article-meta">投稿人：李四 | 投稿日期：2026-02-25 | 分类：无厘头整活挑战</div>
-            <div class="article-content">
-                <p><span class="en">Abstract:</span> 为了整活挑战10秒吃10根辣条，结果被辣到嘴肿，喝了3瓶牛奶才缓过来，挑战失败。</p>
-                <p><span class="en">Conclusion:</span> 人菜瘾大，下次还敢。</p>
+            <h2><a href="article-2.html">文章标题</a></h2>
+            <div class="article-meta">
+                <span>投稿人：XXX</span>
+                <span>投稿日期：2026-XX-XX</span>
+                <span>分类：XXX</span>
+                <span>收录状态：已录用</span>
             </div>
+            <p class="article-abstract">摘要内容</p>
+            <a href="article-2.html" class="read-btn">阅读全文 →</a>
         </div>
-
-        <!-- 示例文章3 -->
-        <div class="article-card">
-            <h2>REPORT: RANDOM DATA OF CAT NAPS
-                <span class="cn">报告：猫咪打盹时长瞎搞数据</span>
-            </h2>
-            <div class="article-meta">投稿人：王五 | 投稿日期：2026-02-20 | 分类：瞎搞数据报告</div>
-            <div class="article-content">
-                <p><span class="en">Abstract:</span> 统计了我家猫7天的打盹时长，纯编数据显示它每天睡18.88小时（实际只有12小时），结论是猫比人懒。</p>
-                <p><span class="en">Conclusion:</span> 数据全靠编，结论全靠猜，主打一个随心所欲。</p>
-            </div>
-        </div>
+        -->
     </section>
 
     <!-- 底部（和首页一致） -->
