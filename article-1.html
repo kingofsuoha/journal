@@ -93,6 +93,73 @@
             margin-bottom: 15px;
             font-weight: bold;
         }
+        /* 新增作者信息样式 */
+        .article-authors {
+            text-align: center;
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .article-affiliation {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .correspondence {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        /* 基金资助样式 */
+        .funding {
+            margin-bottom: 25px;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #ff9900;
+            border-radius: 4px;
+        }
+        .funding h2 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #003366;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .funding p {
+            font-size: 15px;
+            color: #333;
+            display: inline;
+            line-height: 1.8;
+        }
+        /* 作者贡献声明样式 */
+        .author-contribution {
+            margin-bottom: 25px;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #003366;
+            border-radius: 4px;
+        }
+        .author-contribution h2 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #003366;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .author-contribution p {
+            font-size: 15px;
+            color: #333;
+            display: inline;
+            line-height: 1.8;
+        }
         .article-meta {
             text-align: center;
             color: #666;
@@ -296,6 +363,12 @@
                 margin-left: 10px;
                 font-size: 13px;
             }
+            .article-affiliation {
+                font-size: 13px;
+            }
+            .correspondence {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -325,12 +398,30 @@
         <!-- 文章标题与元信息 -->
         <div class="article-title">
             <h1>室温无配体 “一锅法” Suzuki-Miyaura 偶联反应的灾难性探索：从理想合成到产物全损的系统性翻车研究</h1>
+            <!-- 新增作者署名 -->
+            <div class="article-authors">
+                Seven¹, 不吃韭菜 ¹, 梭哈大王 ¹,*
+            </div>
+            <!-- 新增作者单位 -->
+            <div class="article-affiliation">
+                ¹ 中国国家梭哈研究重点实验室 民间野路子有机合成整活学院 非酋催化与系统性翻车研究中心，整活市野路子区 SOHA 大道 001 号，邮编 202601，中国
+            </div>
+            <!-- 新增通讯作者信息 -->
+            <div class="correspondence">
+                通讯作者：梭哈大王 | E-mail：kingofsoha@lianxibushang.com | 通讯地址：中国整活市野路子区 SOHA 大道 001 号 民间野路子实验周报总部 国家梭哈研究重点实验室 007 号工位
+            </div>
             <div class="article-meta">
                 <span>第一期</span>
                 <span>分类：实验翻车实录</span>
                 <span>投稿日期：2026-03-09</span>
                 <span>收录状态：已录用</span>
             </div>
+        </div>
+
+        <!-- 基金资助 -->
+        <div class="funding">
+            <h2>基金资助：</h2>
+            <p>梭哈大王基金会整活专项基金（基金编号：SOHA-NAICHA-202603），本研究全部经费支持为一杯全糖冰奶茶，无其他额外经费资助。</p>
         </div>
 
         <!-- 摘要 -->
@@ -441,6 +532,12 @@
             <p>2. 有机合成实验中，任何一个环节的偷懒，都会最终转化为翻车的结局：未重结晶的原料、未烘干的玻璃仪器、分解失活的催化剂、未优化的展开剂、吸潮的硅胶，本研究精准踩中了所有可能的坑，无一次意外幸免。</p>
             <p>3. 本研究构建了一套完整的 Suzuki 偶联反应反面数据集，所有本研究采用的操作，广大合成新手均可完全反向执行，可大幅提升反应的成功率。</p>
             <p>4. 最后郑重奉劝各位同行：不要觉得文献里的反应很简单就随意简化条件，有机化学永远不会放过任何一个想摸鱼的人。</p>
+        </div>
+
+        <!-- 作者贡献声明 -->
+        <div class="author-contribution">
+            <h2>作者贡献声明：</h2>
+            <p>Seven 负责全部实验操作、翻车现场执行与原始数据记录；不吃韭菜 负责 TLC 点板摸鱼、实验过程奶茶投喂与情绪维稳；梭哈大王 负责课题设计、经费（奶茶）筹措、通讯对接与全流程翻车背锅，为本文通讯作者。</p>
         </div>
 
         <!-- 致谢 -->
